@@ -2,7 +2,6 @@
 
 name: CI
 
-name: Push-to-EC2
 
 # Trigger deployment only on push to master branch
 on:
@@ -23,5 +22,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-        run: echo "hello world"
+          REMOTE_USER: ${{ secrets.USERNAME }}   
+          port: ${{ secrets.SSH_PORT }}
+          run: 
+           echo "hello world"
