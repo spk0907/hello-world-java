@@ -47,7 +47,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.AWS_HOST_NAME }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          REMOTE_DIR: "/var/html"
+          TARGET: "/var/html"
           REMOTE_PORT: 22
         with:   
           run: |  
