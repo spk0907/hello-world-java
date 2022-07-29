@@ -34,3 +34,24 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  deploy:
+      name: Deploy to EC2 on master branch push
+      runs-on: self-hosted
+
+      steps:
+      - name: Checkout the files
+        uses: actions/checkout@v2
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.AWS_HOST_NAME }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          REMOTE_DIR: "/var/html"
+          REMOTE_PORT: 22
+        with:   
+          run: |  
+            echo "hello world"
+          
+
+     
