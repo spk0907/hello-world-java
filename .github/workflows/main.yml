@@ -49,8 +49,8 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: "/var/html"
           REMOTE_PORT: 22
-           
-          run: |  
+      - name: Run a multi-line script  
+        run: |  
             echo "hello world"
           
 
