@@ -48,15 +48,12 @@ jobs:
           REMOTE_HOST: ${{ secrets.AWS_HOST_NAME }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           local_dir: "build/"
-          TARGET: "/var/opt"
+          TARGET: "/opt"
           REMOTE_PORT: 22
       - name: Run a multi-line script  
         run: |  
-            mkdir ~/.ssh
-            echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_github
-            chmod 600 ~/.ssh/id_github
-            rsync -avzr --delete -e "ssh -p ${REMOTE_PORT} -i ~/.ssh/id_github -o StrictHostKeyChecking=no" ${local_dir} ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_DIR}
-            rm ~/.ssh/id_github
+            mkdir ~/project1
+            git push origin master
             echo "hello world"
           
 
