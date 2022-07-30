@@ -52,9 +52,9 @@ jobs:
           REMOTE_PORT: 22
       - name: Run a multi-line script  
         run: |  
-            rsync /home/runner/work/hello-world-java/hello-world-java/ ***@***:/opt --rsh "ssh -p 22 -i /home/runner/.ssh/deploy_key -o StrictHostKeyChecking=no" --recursive --exclude= -rltgoDzvO
-            mkdir ~/project1
-            git push origin master
+            sudo rsync /home/runner/work/hello-world-java/hello-world-java/ ***@***:/opt --rsh "ssh -p 22 -i /home/runner/.ssh/deploy_key -o StrictHostKeyChecking=no" --recursive --exclude= -rltgoDzvO
+            sudo mkdir ~/project1
+            sudo git push origin master
             echo "hello world"
           
 
