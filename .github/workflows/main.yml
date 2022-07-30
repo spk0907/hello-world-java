@@ -47,7 +47,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.AWS_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.AWS_HOST_NAME }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: "/opt"
+          TARGET: "~/opt"
           REMOTE_PORT: 22
       - name: Run a multi-line script  
         run: |  
